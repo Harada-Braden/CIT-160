@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+	<head>
+	<meta charset="utf-8" />
+		<title>Wind Chill</title>
+
+		<script type="text/javascript">
+			/* Defining Table
+			 * Input: User assigns values for current tempurature and wind speed, then clicks button
+			 * Processing: Calculates the tempurature given wind chill factor
+			 * Output: Displays the current "feel" tempurature
+			 */
+
+			function doInputOutput() {
+                var tempF = parseFloat(document.getElementById("temp").value);
+                var speed = parseFloat(document.getElementById("windSpeed").value);
+                document.getElementById("output").innerHTML = windChill(tempF, speed);
+            }
+            function windChill(tempF, speed) {
+                return 35.74 + 0.6215 * tempF - 35.75 * Math.pow(speed, 0.16) + 0.4275 * tempF * Math.pow(speed, 0.16);
+            }
+		</script>
+	</head>
+    <body>
+        <h1>This program will calculate the wind chill using the current tempurature and wind speed.</h1>
+        <p>Input Tempurature (Farenheit):</p>
+        <input type="text" id="temp" size="1">
+        <p>Input Wind Speed (Miles per Hour):</p>
+        <input type="text" id="windSpeed" size="2">
+        <br>
+        <br>
+        <button type="button" onclick="doInputOutput() ">Calculate!</button>
+        <div id="output"></div>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+	<head>
+	<meta charset="utf-8" />
+		<title>Test your math skills!</title>
+
+		<script type="text/javascript">
+			/* Defining Table
+			 * Input: User gives 2 variables and operator
+			 * Processing: Calculates the variables
+			 * Output: Display correct or incorrect.
+			 */
+
+			function runMath () {
+			var x, y;
+			var x = parseFloat(document.getElementById("x").value);
+			var operator = (document.getElementById("operator").value);
+			var y = parseFloat(document.getElementById("y").value);
+			var result = (document.getElementById("result").value);
+			var CorrectAnswer;
+			var message;
+			
+			if (operator == "+") {
+				CorrectAnswer = x + y;
+				}
+			else if (operator == "-") {
+				CorrectAnswer = x - y;
+				}
+			else if (operator == "*") {
+				CorrectAnswer = x * y;
+				}
+			else if (operator == "/") {
+				CorrectAnswer = x / y;
+				}
+			if (result == CorrectAnswer) {
+				message = "Correct! Good job.";
+				}
+			else if (result != CorrectAnswer) {
+				message = "Incorrect. Try again!";
+				}
+			document.getElementById("Answer").innerHTML = message;
+			}
+		</script>
+	</head>
+	
+	<body>
+		<h1>Test Your Math Skills!
+		</h1>
+		<h4>Instructions:</h4>
+		<p>Type a number in the first box, select an option in the second box, type a second number in the third box, and put in the correct answer in the last box. Then, click "Check"!</p>
+		<input type="text" id="x" size="1">
+		<select id="operator">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+		</select>
+		<input type="text" id="y" size="1">
+		=
+		<input type="text" id="result" size="1">
+		<button onclick="runMath () ">Check</button>
+		<p id="Answer"></p>
+	</body>
+</html>

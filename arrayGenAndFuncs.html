@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title>Arrays</title>
+        <script type="text/javascript">
+            // This script provides a random array named testingArray to be used in the assigned problems.
+            const ARRAYSIZE = 50; // constant of max array size for this problem
+            var list = [0];  // global scope available to all functions - no need to pass
+            function createArray() {
+                var numItems = Math.floor((Math.random() * ARRAYSIZE + 1));   //random select an array size between 1 and 50 items
+                for (var i = 0; i < numItems; i++) {
+                    var randomValue = Math.floor(Math.random() * 100 + 1); 
+                    list[i] = randomValue;  // add the random value to the array at the current position i
+                if (i != numItems-1)
+                    document.getElementById("divList").innerHTML += randomValue + ", ";  // display the added value through accumulation
+                else
+                    document.getElementById("divList").innerHTML += randomValue + "]"; // close out the displayed array
+                }
+            }
+            function getValue() {
+                var randomIndex = Math.floor(Math.random() * list.length);
+                document.getElementById("displayRandomValue").value = "list[" + randomIndex + "] = " + list[randomIndex];
+                document.getElementById("sumOfEnds").value = addEnds(list);
+                document.getElementById("middleValue").value = getMiddle(list);
+            }
+            function listLength() {
+                document.getElementById("displayListLength").value = list.length;
+            }
+            function addEnds(list) {
+                var i = list.length - 1;
+                var sum = list[0] + list[i];
+                return sum;
+            }
+            function getMiddle(list) {
+                var i = list.length;
+                if (i % 2 == 0) {
+                    //if i is even, divide by 2
+                    //take the index i and (i - 1) value
+                    //add the two index values and divide by 2 to get the average
+                    return (list[i / 2] + list[(i / 2) - 1]) / 2;
+                } else {
+                    //if i is odd, subtract 1 and divide by 2
+                    //return the index list[h]
+                    return list[(i - 1) / 2];
+                }
+            }
+
+
+            function clearArray() {
+                list = [];
+                document.getElementById("divList").innerHTML = "&nbsp;&nbsp;&nbsp; Generated Array: [";
+                document.getElementById("displayRandomValue").value = "";
+                document.getElementById("displayListLength").value = "";
+                document.getElementById("sumOfEnds").value = "";
+                document.getElementById("middleValue").value = "";
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Two Functions that use Arrays</h2>
+        <hr>
+        <p>
+            Click the button to display a random value of the testArray[], display the total number of indexes, get the sum of the ends, and find the middle value. Note: If the Array is even and has 2 middle values, the average of the values will be displayed.
+        </p>
+            <ol>
+                <li>
+                    <button type="button" onclick="createArray() ">Create a Random Array</button>
+                    <hr>
+                    <div id="divList">&nbsp;&nbsp;&nbsp; Generated Array: [</div>
+                    &nbsp;&nbsp;&nbsp;
+                </li>
+                <li>
+                    <button type="button" onclick="getValue(), listLength()">Run Functions</button>
+                    &nbsp;&nbsp;&nbsp; Random Value: <input type="text" readonly id="displayRandomValue">
+                    <br><br>
+                </li>
+                <li>
+                    List Length: <input type="text" readonly id="displayListLength" size="3">
+                    <br><br>
+                </li>
+                <li>
+                   Sum: <input type="text" readonly id="sumOfEnds" size="3">
+                    <br><br>
+                </li> 
+                <li>
+                     Middle Value: <input type="text" readonly id="middleValue" size="2">
+                </li>
+            </ol> 
+        <hr>
+        <button type="button" onclick="clearArray()">Clear Array</button>
+    </body>
+</html>

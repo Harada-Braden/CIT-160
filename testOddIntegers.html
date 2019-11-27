@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>Sum of Odd Integers</title>
+
+<!--Write a defining table and a program that asks the user for an integer n and then
+outputs the sum of all the odd integers between 1 and n, inclusive. -->
+
+<script type="text/javascript">
+//Input: Get a number from the user
+//Processing: find all of the odd integers between 1 and the number given
+//add all of those integers together
+//Output: Sum of odd integers between 1 and that number.
+      
+  //
+    function sumOddsToYourNumber(){
+    var yourNumber = parseInt(document.getElementById('yourNumber').value);
+	var sum = 0;
+    //find the % for each number divided by 2, if it is greater than 0, add it to i
+//i : start counting at 0
+//as long as i < yourNumber keep adding i to the total
+//add 1 to the previous number (i)
+//if i is even, skip it
+//if i is odd add it to the previous total (t)
+//check the next number for even/odd & repeat
+    for (var i = 1; i <= yourNumber; i += 2){
+	  sum += i;
+
+    }
+     document.getElementById('outputDiv').innerHTML = sum;
+ }
+     
+   
+   
+</script>
+</head>
+<body>
+
+  <!--heading-->
+<h1>What is the sum of the odd numbers between 1 and your number</h1>
+
+  <!-- this is for the TEXT BOX -->
+Pick a number <input type="text" id="yourNumber"><br>
+
+  <!-- this is for a BUTTON -->
+<button type="button" onclick="sumOddsToYourNumber()">Calculate sum</button>
+
+  <!-- this is the div where your javaScript info shows to the user-->
+<div id="outputDiv"></div>
+</body>
+</html>

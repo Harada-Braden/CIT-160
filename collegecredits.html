@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+	<head>
+	<meta charset="utf-8" />
+		<title>School College Title</title>
+
+		<script type="text/javascript">
+			/* Defining Table
+			 * Input: Student's name and amount of credits
+			 * Processing: Compares amount of credits to known school terms
+			 * Output: Display title to user
+			 */
+
+			function schoolAge () {
+				var N = document.getElementById("name").value
+				var credits = parseInt(document.getElementById("credits").value);
+					var year
+					if (credits >= "0" && credits < "30") {
+						year = "Freshman";
+					}
+					else if (credits >= "30" && credits < "60") {
+						year = "Sophmore";
+					}
+					else if (credits >= "60" && credits < "90") {
+						year = "Junior";
+					}
+					else if (credits >= "90") {
+						year = "Senior";
+					}
+					document.getElementById("School").innerHTML = N +" is a "+ year +"!"
+				}
+				
+		</script>
+	</head>
+
+
+	<body>
+		<h1>Find out your college title!
+		</h1>
+			<p>Name of Student:
+			</p>
+		<input type="text" id="name">
+			<p>Amount of Credits:
+			</p>
+		<input type="text" id="credits" size="1">
+			<button onclick="schoolAge () ">Check
+			</button>
+			<p id="School">
+			</p>
+	</body>
+</html>

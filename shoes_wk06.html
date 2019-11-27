@@ -1,0 +1,36 @@
+﻿<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>Footwear</title>
+<script type="text/javascript">
+/* Input: Any type of weather, i.e. "hot", "snow", "rain", "biblical flooding", etc.
+ * Processing: The computer reads the entered weather, and makes a footwear selection
+ * Output: The optimal footwear selection for the entered weather */
+function bestShoes () {
+var weather = document.getElementById('weatherBox').value;
+var footwear;
+if (weather == 'hot') {
+footwear = 'sandals';
+}
+else if (weather == 'rain') {
+footwear = 'galoshes';
+}
+else if (weather == 'snow') {
+footwear = 'boots';
+}
+else {
+footwear = 'shoes';
+}
+document.getElementById('footwearDiv').innerHTML = footwear;
+}
+</script>
+</head>
+<body>
+Input the current weather to find out what shoes to wear! <br>
+Examples: hot, snow, rain, etc. <br>
+Weather: <input type="text" id="weatherBox" size="4"><br>
+<button type="button" onclick="bestShoes()">Shoes!</button><br>
+<div id="footwearDiv"></div>
+</body>
+</html>

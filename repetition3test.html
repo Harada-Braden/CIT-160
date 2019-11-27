@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>5 Times Table</title>
+<script type ="text/javascript">
+    /* Input:
+     * Processing: use counting loop to count the five times table from 1 to 12
+     * Output: Print the five times tables from 1 to 12
+     */
+
+     function skipFive() {
+
+         //Input
+         var skip = 5;
+         var message = "";
+
+         //Processing
+         for(var i = 1; i <= 12; i++) {
+             message += (skip + ' x ' + i + ' = ' + i*skip + '<br>');
+         }
+
+         //Output
+         document.getElementById('displayDiv').innerHTML = message;
+
+     }
+
+</script>
+</head>
+<body>
+<h1>Would you like to see the five times table from 1 to 12?</h1>
+    <button type="button" onclick="skipFive()">Yes</button>
+    <div id="displayDiv"></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>Calcute Gas Mileage</title>
+<script type="text/javascript">
+/* Input: User inputs start miles, end miles, and gallons used
+ * Processing: Calculates total miles divided by gallons
+ * Output: outputs gallons per mile to user
+ */
+function MPGcalc() {
+    // Input Mileages and Gallons from user.
+    var s = document.getElementById("StartMileage").value;
+    var e = document.getElementById("EndMileage").value;
+    var g = document.getElementById("GallonsUsed").value;
+    // Convert user input from text to number.
+    var m = e - s;
+    var g = g;
+    var t = m / g;
+    // Calculate t from Total Miles driven divided by Gallons.
+    var t = (e - s) / g;
+    // Display Miles per Gallon to the user.
+    Mileage: document.getElementById('MPGdiv').innerHTML = t;
+}
+</script>
+</head>
+<body> 
+<h1> Calculate your gas milage </h1>
+Enter Starting milage: <input type="text" id="StartMileage">
+<br> <br>
+Enter Ending milage: <input type="text" id="EndMileage">
+<br> <br>
+Enter Total gallons used: <input type="text" id="GallonsUsed">
+<button type="button" onclick="MPGcalc()">Calculate</button>
+<div id="MPGdiv"></div>         
+</body>       
+</html>

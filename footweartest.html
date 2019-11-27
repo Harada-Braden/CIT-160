@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+    <head>
+    <meta charset="utf-8" />
+        <title>Choice of Footwear</title>
+        <script type="text/javascript">
+            /* Defining Table
+             * Input: User declares type of weather for the day.
+             * Processing: Determines type of weather and assigns shoes.
+             * Output: Displays shoe assignment to user.
+             */
+            function findshoes() {
+            var weather = (document.getElementById("weather").value);
+            var shoes;
+            
+             if (weather == "sun") 
+            {
+                document.getElementById("outputDiv").innerHTML = "Sandals.";
+                } 
+           
+             else if (weather == "rain") 
+            {
+                document.getElementById("outputDiv").innerHTML = "Goloshes.";
+                } 
+            
+            else if (weather == "cold") 
+            {
+                document.getElementById("outputDiv").innerHTML = "Boots.";
+                } 
+        
+            else
+            {
+            document.getElementById("outputDiv").innerHTML = "Shoes!";
+                }
+      }
+            
+        </script>
+    </head>
+    <body> 
+        What do you see outside?
+        <input type="text" id="weather">
+        <br>
+        <button type="button" onclick="findshoes()">Find my shoes!</button>
+        You should wear: <div id="outputDiv"></div>            
+    </body> 
+</html>

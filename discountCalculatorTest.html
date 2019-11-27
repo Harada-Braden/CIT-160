@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta author="AmberCameron">
+<title>Final Cost</title>
+<script type="text/javascript">
+/* Defining Table
+ * Input: price
+ * Processing: determine if subtotal is over 50 dollars
+ *if over 50 determine if it is Tuesday or Wednesday
+ *if tuesday or wednesday and over 50 then apply a 10% discount
+ *apply 6% sales tax to every amount put in
+ * Output: final price
+ 
+
+You work for a retail store that wants to increase sales on Tuesday and Wednesday which are the store’s slowest sales days.
+Write a defining table and then a program that takes a customer’s subtotal as input and if the subtotal is greater than $50 and today is Tuesday or Wednesday,
+subtracts 10% from the subtotal. Your program should then compute and output the total amount due by adding sales tax of 6% to the subtotal. Within your program,
+use this JavaScript code that will get the current day of the week from your computer’s clock:
+
+    var dayOfWeek = new Date().getDay();
+
+If you use the above code, the variable dayOfWeek will hold 0 if today is Sunday, 1 if today is Monday, and so on to 6 if today is Saturday.
+
+ */
+function consumercost () {
+    var sub = parsefloat(document.getElementById("subtotal").value);
+    var dayOfWeek = new Date().getDay();
+   
+   
+      if (sub >= 50 && (dayOfWeek == 2 || dayOfWeek == 3)){
+         var finalPrice= (sub - sub * 1 / 10) * (6 / 10) + (sub - sub * (1 / 10));     
+      }
+     
+      else{
+       var finalPrice = sub + (sub * (6 / 10));
+    }   
+     
+   
+    document.getElementById('outputDiv').innerHTML = "Thank you for shopping with us, your final price is $" + finalPrice;
+}
+</script>
+</head>
+
+<body> 
+<h1> Your Final Total For Shopping With Us Today Is  </h1> <br><br>                       
+Enter Subtotal:
+ <input type="text" id="subtotal">  <br><br>
+<button type="button" onclick="consumercost () ">Total</button>
+<div id="outputDiv"></div>
+</body>      
+</html>

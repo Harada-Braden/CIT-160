@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+	<head>
+	<meta charset="utf-8" />
+		<title>Multiply 5
+		</title>
+
+		<script type="text/javascript">
+			/* Defining Table
+			 * Input: Click a button
+			 * Processing: Calculate all the products of 5 multiplied
+             * by all the integers between and including 1 and 12
+			 * Output: Display multipliers and products
+			 */
+
+			function callFunction() {
+                var i ;
+                var sum = "";
+                for(i = 1;i<= 12; i++){
+                sum += "5 x "+ i + "= " + (5 * i) + "<br>";
+                    }
+                document.getElementById("output").innerHTML = sum;    
+            }
+		</script>
+	</head>
+	
+	<body>
+		<h1>Display all of the multiples of 5 from 1 through 12
+		</h1>
+		<h4>Instructions:</h4>
+        <p>Click the button!</p>
+		<button onclick="callFunction()">Display</button>
+		<div id="output"></div>
+	</body>
+</html>

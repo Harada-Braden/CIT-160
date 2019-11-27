@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title>Arrays</title>
+        <script type="text/javascript">
+            // This script provides a random array named testingArray to be used in the assigned problems.
+            const ARRAYSIZE = 50; // constant of max array size for this problem
+            var list = [0];  // global scope available to all functions - no need to pass
+            function createArray() {
+                var numItems = Math.floor((Math.random() * ARRAYSIZE + 1));   //random select an array size between 1 and 50 items
+                for (var i = 0; i < numItems; i++) {
+                    var randomValue = Math.floor(Math.random() * 100 + 1); 
+                    list[i] = randomValue;  // add the random value to the array at the current position i
+                if (i != numItems-1)
+                    document.getElementById("divList").innerHTML += randomValue + ", ";  // display the added value through accumulation
+                else
+                    document.getElementById("divList").innerHTML += randomValue + "]"; // close out the displayed array
+                }
+            }
+            function getValue() {
+                var randomIndex = Math.floor(Math.random() * list.length);
+                document.getElementById("displayRandomValue").value = "list[" + randomIndex + "] = " + list[randomIndex];
+                document.getElementById("sumOfEnds").value = addEnds(list);
+                document.getElementById("location").value = makeLocation("Rexburg", "Idaho", "83440");
+                document.getElementById("endValue").value = getLast(list);
+                document.getElementById("21").value = twentyOne([10, 4, 2]);
+                document.getElementById("coneVol").value = coneVolume(6, 5);
+            }
+            function listLength() {
+                document.getElementById("displayListLength").value = list.length;
+            }
+            
+            function addEnds(list) {
+                var i = list.length - 1;
+                var sum = list[0] + list[i];
+                return sum;
+            }
+            
+            function makeLocation(city, state, zipcode){
+                var result = city + ", " + state + " " + zipcode;
+                return result;
+            }
+            
+            function getLast(list){
+                var i = list.length - 1;
+                return list[i];
+            }
+            
+            function twentyOne(hand){
+                var i = 0;
+                var score = 0;
+                for(i = 0; i < hand.length; i ++){
+                    score += hand[i];
+                }
+                if(score < 22){
+                    return score;
+                } else {
+                    return "bust";
+                }
+            }
+            
+           function coneVolume(radius, height){
+                var volume = (Math.PI * Math.pow(radius, 2) * height) / 3;
+                return volume;
+            }
+            
+            function examQuestion6(){
+                var a = 2, b = -3, c = 14, d = 5;
+                var result = 6 + c / a % d + b;
+                document.getElementById("question6Result").value = result
+            }
+            
+            function examQuestion7(){
+                var i = 0, limit = 5;
+                while (i < limit) {
+                    window.alert("Apple");
+                    i += 2;
+                }
+            }
+            
+            function examQuestion8(){
+                for (var i = 0;  i > 3;  i++) {
+                    window.alert("Goodbye");
+                }
+            }
+            
+            function examQuestion9(){
+                var i = 0;
+                while (i < 3) {
+                    window.alert("Snow");
+                }
+            }
+            
+            function clearArray() {
+                list = [];
+                document.getElementById("divList").innerHTML = "&nbsp;&nbsp;&nbsp; Generated Array: [";
+                document.getElementById("displayRandomValue").value = "";
+                document.getElementById("displayListLength").value = "";
+                document.getElementById("sumOfEnds").value = "";
+                document.getElementById("location").value = "";
+                document.getElementById("endValue").value = "";
+                document.getElementById("21").value = "";
+                document.getElementById("coneVol").value = "";
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Two Functions that use Arrays</h2>
+        <hr>
+        <p>
+            Click the button to make random things be displayed!
+        </p>
+            <ol>
+                <li>
+                    <button type="button" onclick="createArray() ">Create a Random Array</button>
+                    <hr>
+                    <div id="divList">&nbsp;&nbsp;&nbsp; Generated Array: [</div>
+                    &nbsp;&nbsp;&nbsp;
+                </li>
+                <li>
+                    Random Value: <input type="text" readonly id="displayRandomValue">
+                    <br><br>
+                </li>
+                <li>
+                    List Length: <input type="text" readonly id="displayListLength" size="3">
+                    <br><br>
+                </li>
+                <li>
+                   Sum of beginning and end: <input type="text" readonly id="sumOfEnds" size="3">
+                    <br><br>
+                </li> 
+                <li>
+                     Location: <input type="text" readonly id="location" size="25">
+                    <br><br>
+                </li>
+                <li>
+                    Last Value: <input type="text" readonly id="endValue" size="1">
+                    <br><br>
+                </li>
+                <li>
+                    21 (Win or Bust): <input type="text" readonly id="21" size="3">
+                    <br><br>
+                </li>
+                <li>
+                    Cone Volume: <input type="text" readonly id="coneVol" size="4">
+                    <br><br>
+                </li>
+                <li>
+                    Exam Question 6 Result: <input type="text" readonly id="question6Result">
+                </li>
+                <button type="button" onclick="getValue(), listLength() ">Run Functions</button>
+                &nbsp;&nbsp;&nbsp;
+            </ol> 
+        <hr>
+        <button type="button" onclick="clearArray()">Clear Everything</button>
+    </body>
+</html>

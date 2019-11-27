@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>Program to calcute gas milage</title>
+<script type="text/javascript">
+/* Input: User inputs start, end, and gallons used
+ * Processing: Calculates MPG
+ * Output: outputs gallons per mile to user
+ */
+function mpgcalc() {
+    // Read Qty of Liters from the user.
+    var s = document.getElementById('Startmilage').value;
+    var e = document.getElementById('Endmilage').value;
+    var g = document.getElementById('gallonsused').value;
+    // Convert what the user typed from text into a number. Thanks to Judy King for this idea.
+    var m = e - s;
+    var g = g;
+    var t = m / g;
+    // Convert qty of liters to quarts.
+    var t = (e - s) / g;
+    // Display number of quarts to the user.
+    document.getElementById('MPGdiv').innerHTML = t;
+}
+</script>
+</head>
+<body> 
+<h1> Calculate your gas milage </h1>
+Enter Starting milage: <input type="text" id="Startmilage">
+<br> <br>
+Enter Ending milage: <input type="text" id="Endmilage">
+<br> <br>
+Enter Total gallons used: <input type="text" id="gallonsused">
+<br>
+<button type="button" onclick="mpgcalc()">Calculate</button>
+<div id="MPGdiv"></div>                
+</body>       
+</html>

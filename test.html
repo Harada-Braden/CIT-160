@@ -1,0 +1,28 @@
+
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>Miles per gallon</title>
+<script lang="javascript" type="text/javascript">
+function mpgConversion() {
+var BO = document.getElementById('beginingOdometer').value;
+var EO = document.getElementById('endingOdometer').value;
+var GU = document.getElementById('gasUsed').value;
+var MPG = (EO - BO) / GU;
+document.getElementById('result').value = MPG;   
+}
+</script>
+   
+   </head>
+ 
+<body>
+<h1>Calculate your estimated MPG</h1>
+<p>Begining Odometer: <input type="text" id="beginingOdometer"></p>
+<p>Ending Odometer: <input type="text" id="endingOdometer"></p>
+<p>Gallons of gas used: <input type="text" id="gasUsed"></p>
+<p>Click the button to calculate your Miles Per Gallon (MPG).</p>
+<button onclick="mpgConversion()">Calculate</button>
+<p>Estimated MPG: <input type="text" id="result"></p>
+</body>
+</html>

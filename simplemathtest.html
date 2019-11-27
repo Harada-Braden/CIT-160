@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+    <head>
+        <title>Test Your Math Skills!</title>
+        <script language="javascript" type="text/javascript">
+        /**
+         * Input:         User inputs integer
+         *                User inputs operand
+         *                User inputs integer
+         *                User inputs integer
+         * Processing:     Compute correct answer
+         *                Compare to user answer
+         * Output:         If same, display “Correct! Good job.”
+         *                Else, display, "Incorrect. Try again!"
+         **/
+
+         function compute() {
+             var first = parseInt(document.getElementById("first").value);
+             var operand = document.getElementById("operand").value;
+             var second = parseInt(document.getElementById("second").value);
+             var answer = parseInt(document.getElementById("answer").value);
+
+             var comparison;
+
+             switch (operand) {
+                 case "+":
+                     comparison = first + second;
+                     break;
+                 case "-":
+                     comparison = first - second;
+                     break;
+                 case "*":
+                     comparison = first * second;
+                     break;
+                 case "/":
+                     comparison = first / second;
+                     break;
+             }
+
+             if (comparison == answer) {
+             message = "Correct! Good job.";
+                 }
+             else {
+             message = "Incorrect. Try again!"
+                 }
+
+             //Output
+             document.getElementById("outputDiv").innerHTML = message;
+
+         }
+
+        </script>
+    </head>
+    <body>
+        <h1>Test Your Math Skills!</h1>
+
+            Enter a number: <input type="text" id="first" size="1">
+                Select operand: <select id="operand"/>
+                                    <option value="+">+</option>
+                                    <option value="-">-</option>
+                                    <option value="*">*</option>
+                                    <option value="/">/</option>
+                                </select>
+            Enter a number: <input type="text" id="second" size="1">
+            <p>=</p>
+            Enter the answer: <input type="text" id="answer" size="5">
+            <button type="button" onclick="compute()">Check</button>
+            <div id="outputDiv"></div>
+    </body>
+</html>

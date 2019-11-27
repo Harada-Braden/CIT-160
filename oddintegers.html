@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Odd integer counter</title>
+
+
+<h1>Odd integer counter</h1>
+
+
+    <script type="text/javascript">
+	/*Input: User enters number
+	*Processing: sum of all integer between 1 and input
+	*Output: displays sum to user
+	*/
+
+        function Function1() {
+            var n = parseInt(document.getElementById('input').value);
+			var sum = 0;
+
+			
+			for (var i = 1; i <= n; i = i + 2) {
+				sum = sum + i;
+				}
+			
+
+            document.getElementById("calc").innerHTML = sum;
+
+        }
+    </script>
+	
+	<body>
+    <input type="text" id="input" size="1">
+    <button onclick="Function1()">Check</button>
+    <p id="calc"></p>
+</body>
+</head>
+
+</html>

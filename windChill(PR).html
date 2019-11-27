@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <title>Wind chill</title>
+    <script type="text/javascript">
+function doInputOutput(){
+var tempF = parseFloat(document.getElementById("temperature").value);
+var speed = parseFloat(document.getElementById("windspeed").value);
+var WC = windChill(tempF, speed);
+document.getElementById("output").innerHTML = WC;
+}
+function windChill(tempF, speed) {
+var windy = 35.74 + 0.6215 * tempF - 35.75 * Math.pow(speed, 0.16) + 0.4275 * tempF * Math.pow(speed, 0.16);
+return(windy);
+}
+</script>
+</head>
+<body>
+<p>Please enter the temperature in fahrenheit</p>
+<input type="text" id="temperature">
+<p>Please enter the wind speed outside</p>
+<input type="text" id="windspeed">
+<button type="button" onclick="doInputOutput()">Compute</button>
+<div id="output"></div>
+   
+</body>
+</html>

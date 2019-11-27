@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>Lesson 12: Two Function Arrays</title>
+     <h1>Lesson 12: Two Functions using Arrays</h1>
+     <hr>
+     <meta name= "author" content= "David Dix">
+     <meta name= "description" content= "Two Functions with Arrays!">
+     <script type= "text/javascript">
+     var x = 0;
+     var message = ""; message2 = "";
+     var list = ["Robert", "Steven", "Mark", "Kathy", "William", "Joey", "Laura", "Melissa", "Jonathon"];
+        // input: Create two arrays. OnClick, output the first and last item of the array.
+        // process: Populate the array with statistics.
+        //          Move the first and last item of the array to a variable.
+        //         
+        // output:  Output the First and Last item to the screen for the user.
+    function main() {
+        // var dname = new Array(9);
+        x = list.length; 
+        message = addEnds(list,x);
+        message2 = getMiddle(list,x);
+        document.getElementById('outputDiv').innerHTML = message + message2;
+          }
+    function addEnds(list,x) {
+        var fname = ""; lname = "";
+        fname = list[0];
+        lname = list[x-1];
+        message = "First name on the list: " + fname + "</br> Last name on the list: " + lname + "</br>";
+        return message;
+          }
+       
+    function getMiddle(list,x) {
+        var mname = "";
+        x = parseInt(x / 2);
+        mname = list[x];
+        message2 = "Middle name on the list: " + mname;
+        return message2;
+      }
+       
+   
+</script>
+</head>
+<body>
+<button type="button" onclick="main()" style="position:absolute; top:185px; left:5px;"> Find Specific Array Items </button>
+<div type="text" id="outputDiv" style="position:absolute; top:90px; left:50px;"></div>
+   <footer>
+      <div style="position:absolute; top:550px; left:10px;">
+      <hr>
+      <p>CIT 160-14   Winter 2017 </p>
+      </div>
+   </footer>
+</body>
+</html>

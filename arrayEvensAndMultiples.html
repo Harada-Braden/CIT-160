@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title>Arrays</title>
+        <script type="text/javascript">
+            // This script provides a random array named testingArray to be used in the assigned problems.
+            const ARRAYSIZE = 50; // constant of max array size for this problem
+            var list = [0];  // global scope available to all functions - no need to pass
+            var multiplier = Math.floor(Math.random() * 10)
+            function createArray() {
+                var numItems = Math.floor((Math.random() * ARRAYSIZE + 1));   //random select an array size between 1 and 50 items
+                for (var i = 0; i < numItems; i++) {
+                    var randomValue = Math.floor(Math.random() * 100 + 1); 
+                    list[i] = randomValue;  // add the random value to the array at the current position i
+                if (i != numItems-1)
+                    document.getElementById("divList").innerHTML += randomValue + ", ";  // display the added value through accumulation
+                else
+                    document.getElementById("divList").innerHTML += randomValue + "]"; // close out the displayed array
+                }
+            }
+            function getValue() {
+                var randomIndex = Math.floor(Math.random() * list.length);
+                document.getElementById("displayRandomValue").value = "list[" + randomIndex + "] = " + list[randomIndex];
+                document.getElementById("displayListLength").value = list.length;
+                document.getElementById("evens").value = countEvens(list);
+                document.getElementById("multiplyResult").value = multiply(list, multiplier);
+            }
+            function countEvens(list) {
+                var sum = 0;
+                for (var i = 0; i < list.length; i++) {
+                    if (list[i] % 2 == 0) {
+                    sum++;
+                    }
+                }
+                return sum;
+            }
+                    
+            function multiply(list, multiplier) {
+                    var result = [ ];
+                    for(var i = 0; i < list.length; i++) {
+                        result.push(list[i] * multiplier);
+                    }
+                return result;
+            }
+            function clearArray() {
+                list = [];
+                document.getElementById("divList").innerHTML = "&nbsp;&nbsp;&nbsp; Generated Array: [";
+                document.getElementById("displayRandomValue").value = "";
+                document.getElementById("displayListLength").value = "";
+                document.getElementById("evens").value = "";
+                document.getElementById("multiplyResult").value = "";
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Two Functions that use Arrays</h2>
+        <hr>
+        <p>
+            Click the button to display a random value of the testArray[], display the total number of indexes, count how many even values are in the indices, and determine the result of a multiplier to the indexes.
+        </p>
+            <ol>
+                <li>
+                    <button type="button" onclick="createArray() ">Create a Random Array</button>
+                    <hr>
+                    <div id="divList">&nbsp;&nbsp;&nbsp; Generated Array: [</div>
+                    &nbsp;&nbsp;&nbsp;
+                </li>
+                <li>
+                    Random Value: <input type="text" readonly id="displayRandomValue">
+                    <br><br>
+                </li>
+                <li>
+                    List Length: <input type="text" readonly id="displayListLength" size="3">
+                    <br><br>
+                </li>
+                <li>
+                   Evens: <input type="text" readonly id="evens" size="3">
+                    <br><br>
+                </li> 
+                <li>
+                    Multiplied: [<div id="multiplyResult" ></div>
+                </li>
+            </ol> 
+        <button type="button" onclick="getValue()">Run Functions</button>
+                    &nbsp;&nbsp;&nbsp; 
+        <hr>
+        <button type="button" onclick="clearArray()">Clear Array</button>
+    </body>
+</html>

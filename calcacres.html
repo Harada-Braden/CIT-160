@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>How Many Acres?</title>
+
+<script type="text/javascript">
+/* Input: Total area of land by width and length in fee
+ * Processing: Calculate in acres
+ * Output: Area of land in acres
+ */
+function computeSize() {
+	//Input land area in feet from user
+    var w = document.getElementById("Width").value;
+    var l = document.getElementById("Length").value;
+	
+	//Calculate area into Acres
+    var a = (w * l) / 43560;
+	
+	//Display Acreage to the user
+    document.getElementById('acres').innerHTML = a;
+}
+
+</script>
+</head>
+
+<body>
+    <h1>How Many Acres?</h1>
+    Width (feet) <input type="text" id="Width"><br>
+    Length (feet) <input type="text" id="Length"><br>
+    <button type="button" onclick="computeSize()">Acres</button><br>
+    Size (acres) <div id="acres"></div>
+</body>
+</html>
